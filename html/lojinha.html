@@ -15,7 +15,7 @@
     <div class="container cabecalho-wrapper">
       <div class="logotipo">applefy</div>
       <div class="container-busca">
-        <input type="text" placeholder="Pesquise por iPhones, MacBooks..." />
+        <input class="buscar" type="text" placeholder="Pesquise por iPhones, MacBooks..." />
         <button aria-label="Buscar"><i class="bx bx-search"></i></button>
       </div>
     </div>
@@ -37,8 +37,7 @@
 
   <main class="conteudo-principal container">
     <h2 class="titulo-secao">Lançamentos da Semana</h2>
-    <section class="grade-produtos">
-    </section>
+    <section class="grade-produtos"></section>
   </main>
 
   <footer class="rodape">
@@ -72,19 +71,6 @@
     </div>
   </footer>
 
-  <div class="overlay-modal" id="modal-produto">
-    <div class="modal-adicionar">
-      <h3>Novo Produto</h3>
-      <input type="text" placeholder="Nome do produto" id="nome-produto" />
-      <input type="file" id="foto-produto" accept="image/*" />
-      <input type="number" placeholder="Valor (R$)" id="valor-produto" />
-      <div class="modal-acoes">
-        <button id="btn-salvar-produto">Salvar</button>
-        <button id="btn-fechar-modal">Cancelar</button>
-      </div>
-    </div>
-  </div>
-
   <div class="overlay-carrinho" id="overlay-carrinho"></div>
 
   <aside class="carrinho-lateral" id="carrinho-lateral">
@@ -93,16 +79,14 @@
       <button id="btn-fechar-carrinho" aria-label="Fechar carrinho"><i class="bx bx-x"></i></button>
     </div>
 
-    <div class="itens-carrinho" id="itens-carrinho">
-    </div>
+    <div class="itens-carrinho" id="itens-carrinho"></div>
 
     <div class="carrinho-rodape">
       <div class="carrinho-total">
         <span>Total:</span>
-
       </div>
       <button id="btn-finalizar-compra" class="btn-comprar" style="margin-top: 15px;">
-        Finalizar Compra
+        <a href="checkout.html" >Finalizar Compra</a>
       </button>
     </div>
   </aside>

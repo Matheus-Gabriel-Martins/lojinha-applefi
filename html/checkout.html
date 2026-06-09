@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>AppleFy - Finalizar Compra</title>
+</head>
+<body>
+    <a href="lojinha.html" class="btn-retorno">
+        <i class="bx bx-arrow-back"></i> Voltar aos Produtos
+    </a>
+
+    <main class="container-checkout">
+        <section class="coluna-esquerda">
+            <h2>Finalizar Compra</h2>
+
+            <div class="secao-checkout">
+                <h3><i class="bx bx-user"></i> Dados de Entrega</h3>
+                <div class="formulario-checkout">
+                    <div class="grupo-input">
+                        <input type="text" placeholder="Nome Completo" required>
+                    </div>
+                    <div class="grupo-input linha-dupla">
+                        <input type="text" id="cep" placeholder="CEP" required>
+                        <input type="text" placeholder="Número" required>
+                    </div>
+                    <div class="grupo-input">
+                        <input type="text" placeholder="Endereço (Rua, Bairro...)" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secao-checkout">
+                <h3><i class="bx bx-credit-card"></i> Forma de Pagamento</h3>
+                <div class="metodos-pagamento">
+                    <button type="button" class="btn-metodo ativo" data-metodo="pix">
+                        <i class="bx bx-qr-scan"></i> PIX
+                    </button>
+                    <button type="button" class="btn-metodo" data-metodo="cartao">
+                        <i class="bx bx-credit-card-front"></i> Cartão
+                    </button>
+                    <button type="button" class="btn-metodo" data-metodo="boleto">
+                        <i class="bx bx-barcode"></i> Boleto
+                    </button>
+                </div>
+
+                <div class="detalhes-pagamento">
+                    <div id="area-pix" class="conteudo-pagamento">
+                        <p>Após clicar em finalizar, um QR Code será gerado para o pagamento.</p>
+                    </div>
+
+                    <div id="area-cartao" class="conteudo-pagamento escondido">
+                        <div class="formulario-checkout">
+                            <div class="grupo-input">
+                                <input type="text" placeholder="Número do Cartão">
+                            </div>
+                            <div class="grupo-input">
+                                <input type="text" placeholder="Nome impresso no Cartão">
+                            </div>
+                            <div class="grupo-input linha-dupla">
+                                <input type="text" placeholder="Validade (MM/AA)">
+                                <input type="text" placeholder="CVV">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="area-boleto" class="conteudo-pagamento escondido">
+                        <p>O boleto bancário será gerado com vencimento para 3 dias úteis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="coluna-direita">
+            <div class="card-resumo">
+                <h3>Resumo do Pedido</h3>
+
+                <div class="lista-itens-checkout" id="lista-itens-checkout"></div>
+
+                <div class="valores-checkout">
+                    <div class="linha-valor">
+                        <span>Subtotal</span>
+                        <span id="subtotal-checkout">R$ 0,00</span>
+                    </div>
+                    <div class="linha-valor">
+                        <span>Frete</span>
+                        <span id="frete-checkout">R$ 15,00</span>
+                    </div>
+                    <div class="linha-valor total">
+                        <span>Total</span>
+                        
+                    </div>
+                </div>
+
+                <button type="button" id="btn-finalizar-compra" class="btn-comprar">
+                    Finalizar Pagamento
+                </button>
+            </div>
+        </section>
+    </main>
+    <script src="../js/checkout.js"></script>
+</body>
+</html>

@@ -1,45 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login_css.css">
-    <link
-href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
-rel='stylesheet'>
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>AppleFy - Login</title>
 </head>
 <body>
     <main class="container">
         <form action="#">
-            <h1>
-                Entrar na Applefy
-            </h1>
+            <h1>Entrar na Applefy</h1>
+
             <div class="input-box">
-                <input type="email" placeholder="Usuário">
+                <input type="email" placeholder="Usuário" required>
                 <i class="bx bxs-user"></i>
             </div>
+
             <div class="input-box">
-                <input type="password" placeholder="Senha">
-                <i class="bx bxs-lock-alt"></i>
+                <input type="password" id="password" placeholder="Senha" required>
+                <i class="bx bx-hide" id="togglePassword"></i>
             </div>
+
              <div class="checkbox-remember-me">
                 <label for="remember">
-                    <input type="checkbox">
-                    Lembrar  senha
+                    <input type="checkbox" id="remember">
+                    Lembrar senha
                 </label>
-                <a href="#">
-                    Esqueci a senha
-                </a>
+                <a href="#">Esqueci a senha</a>
              </div>
+
              <button type="submit" class="login">Login</button>
+
               <div class="register-link">
-                <p>
-                    Não tem conta ainda? <a href="registro.html">Cadastre-se</a>
-                </p>
+                <p>Não tem conta ainda? <a href="registro.html">Cadastre-se</a></p>
               </div>
         </form>
     </main>
+    <script src="../js/login.js"></script>
 </body>
 </html>

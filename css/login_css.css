@@ -1,75 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     color: #6B7280;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; 
-    background-color: #F5F5F5;  
+    min-height: 100vh;
+    background-color: #F5F5F5;
+    padding: 20px;
 }
-.container{
-    width: 420px;
-    background-color:#FFFFFF;
-    border: 2px solid  rgba(255, 255, 255, 0.2);
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    background-color: #FFFFFF;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     padding: 30px 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.container h1{
+
+.container h1 {
     font-size: 32px;
     text-align: center;
     color: #000000;
 }
-.container .input-box{
+
+.container .input-box {
     position: relative;
     width: 100%;
     height: 50px;
     margin: 30px 0;
 }
-.input-box input{
+
+.input-box input {
     width: 100%;
     height: 100%;
     background-color: transparent;
     border: none;
     outline: none;
-    font-size: 20px;
-    padding: 20px 45px 20px 20px;
+    font-size: 16px;
+    padding: 0px 45px 0px 20px;
     border-radius: 40px;
-    border: 2px solid  #D1D5DB;
+    border: 2px solid #D1D5DB;
+    transition: border-color 0.3s ease;
 }
-.input-box i{
+
+.input-box input:focus {
+    border-color: #7C3AED;
+}
+
+.input-box i {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
 }
-.checkbox-remember-me{
+
+#togglePassword {
+    cursor: pointer;
+}
+
+.checkbox-remember-me {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: -15px 0px 15px;
 }
-.checkbox-remember-me label input{
+
+.checkbox-remember-me label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-remember-me label input {
     accent-color: white;
     margin-right: 5px;
+    cursor: pointer;
 }
-.checkbox-remember-me a{
+
+.checkbox-remember-me a {
     text-decoration: none;
     color: #7C3AED;
-
 }
-.checkbox-remember-me a:hover{
+
+.checkbox-remember-me a:hover {
     text-decoration: underline;
 }
-.login{
+
+.login {
     width: 100%;
     height: 50px;
     background-color: #7C3AED;
@@ -78,23 +106,241 @@ body{
     cursor: pointer;
     font-size: 16px;
     color: #FFFFFF;
-    font-weight:600 ;
+    font-weight: 600;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, border 0.3s ease;
+}@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --cor-fundo-geral: #080808;
+  --cor-fundo-secundario: #111111;
+  --cor-fundo-card: #181818;
+  --cor-primaria: #8B5CF6;
+  --cor-primaria-hover: #A78BFA;
+  --cor-texto-principal: #FFFFFF;
+  --cor-texto-secundario: #A1A1AA;
+  --cor-borda: #27272A;
+  --cor-erro: #EF4444;
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-premium-purple: 0 10px 30px -5px rgba(139, 92, 246, 0.3);
+  --transicao-suave: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.login:hover{
-    background-color:#5B21B6;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cor-fundo-geral);
+  color: var(--cor-texto-principal);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transicao-suave);
+  position: relative;
+  overflow: hidden;
+}
+
+.container:hover {
+  border-color: #333;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cor-primaria), transparent);
+}
+
+.container h1 {
+  font-size: 32px;
+  text-align: center;
+  color: var(--cor-texto-principal);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.container .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor-fundo-secundario);
+  border: 1px solid var(--cor-borda);
+  outline: none;
+  font-size: 14px;
+  padding: 0px 45px 0px 20px;
+  border-radius: 50px;
+  color: var(--cor-texto-principal);
+  transition: var(--transicao-suave);
+}
+
+.input-box input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 1px var(--cor-primaria);
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--cor-texto-secundario);
+  transition: var(--transicao-suave);
+}
+
+.input-box input:focus + i {
+  color: var(--cor-primaria);
+}
+
+#togglePassword {
+  cursor: pointer;
+}
+
+.checkbox-remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -15px 0px 25px;
+  font-size: 14px;
+}
+
+.checkbox-remember-me label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--cor-texto-secundario);
+  transition: var(--transicao-suave);
+}
+
+.checkbox-remember-me label:hover {
+  color: var(--cor-texto-principal);
+}
+
+.checkbox-remember-me label input {
+  accent-color: var(--cor-primaria);
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.checkbox-remember-me a {
+  text-decoration: none;
+  color: var(--cor-primaria);
+  font-weight: 500;
+  transition: var(--transicao-suave);
+}
+
+.checkbox-remember-me a:hover {
+  color: var(--cor-primaria-hover);
+  text-decoration: underline;
+}
+
+.login {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(180deg, #936af8 0%, #7C3AED 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+  transition: var(--transicao-suave);
+}
+
+.login:hover {
+  box-shadow: var(--shadow-premium-purple);
+  filter: brightness(1.1);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+}
+
+.register-link p {
+  color: var(--cor-texto-secundario);
+}
+
+.register-link a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transicao-suave);
+}
+
+.register-link a:hover {
+  color: var(--cor-primaria-hover);
+  text-decoration: underline;
+}
+
+.btn-retorno {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: auto;
+  padding: 10px 18px;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 1000;
+  transition: 0.2s;
+}
+
+.btn-retorno:hover {
+  background: var(--cor-primaria);
+  color: white;
+}
+
+.login:hover {
+    background-color: #5B21B6;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    transition: 0,5s;
 }
-.register-link{
+
+.register-link {
     text-align: center;
     margin-top: 15px;
     font-size: 14px;
 }
-.register-link a{
+
+.register-link a {
     color: #7C3AED;
     text-decoration: none;
 }
-.register-link a:hover{
+
+.register-link a:hover {
     text-decoration: underline;
 }

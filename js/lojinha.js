@@ -4,34 +4,40 @@ let produtos = [
     linkImg: "../assets/15pmx.jpg",
     sub: "Processador A17 Pro",
     nomeP: "iPhone 15 Pro Max",
-    preco: 8999
+    preco: 8999,
+    qtd: 0
   },
   {
     id: 2,
     linkImg: "../assets/mac4pro.png",
     sub: "Chip M3 Max",
     nomeP: "MacBook Pro 14",
-    preco: 15499
+    preco: 15499,
+    qtd: 0
   },
   {
     id: 3,
     linkImg: "../assets/ipadm2projpg.jpg",
     sub: "Chip M2, Tela Liquid Retina",
     nomeP: "iPad Pro 11",
-    preco: 6299
+    preco: 6299,
+    qtd: 0
   },
   {
     id: 4,
     linkImg: "../assets/apple-watch-series-9.png",
     sub: "Série 9, Caixa de Alumínio",
     nomeP: "Apple Watch Series 9",
-    preco: 3199
+    preco: 3199,
+    qtd: 0
   }
 ];
-const produtosSalvos =
-  JSON.parse(localStorage.getItem("produtos")) || [];
-produtos = [...produtos, ...produtosSalvos];
 
+const produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
+produtos = [...produtos, ...produtosSalvos];
+const btnBuscar = document.querySelector(".buscar").addEventListener('click', ()=>{
+  buscar()
+})
 let produtosCarregados = false;
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -91,7 +97,7 @@ function criarProduto(produto) {
 }
 
 function carregarProdutos() {
-  if (produtosCarregados) return;
+  if (produtosCarregados || !sectionProdutos) return;
 
   produtos.forEach(criarProduto);
   produtosCarregados = true;
@@ -111,7 +117,7 @@ function adicionarAoCarrinho(idProduto) {
       id: produto.id,
       nome: produto.nomeP,
       preco: produto.preco,
-      quantidade: 1
+      quantidade: produto.qtd+1
     });
   }
 
@@ -144,12 +150,11 @@ function alterarQuantidade(idProduto, quantidade) {
 }
 
 function calcularTotal() {
-  return carrinho.reduce((total, item) => {
-    return total + item.preco * item.quantidade;
-  }, 0);
+  return carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0);
 }
 
 function renderizarCarrinho() {
+  if (!itensCarrinho) return;
   itensCarrinho.innerHTML = "";
 
   carrinho.forEach((item) => {
@@ -206,6 +211,7 @@ function renderizarCarrinho() {
 }
 
 function atualizarTotal() {
+  if (!totalCarrinho) return;
   let valorTotal = totalCarrinho.querySelector("#valor-total-carrinho");
 
   if (!valorTotal) {
@@ -231,21 +237,36 @@ function finalizarCompra() {
 }
 
 function abrirCarrinho() {
-  document.querySelector("#carrinho-lateral").classList.add("carrinho-aberto");
-  document.querySelector("#overlay-carrinho").classList.add("aberto");
+  const carrinhoLateral = document.querySelector("#carrinho-lateral");
+  const overlayCarrinho = document.querySelector("#overlay-carrinho");
+
+  if (carrinhoLateral) carrinhoLateral.classList.add("carrinho-aberto");
+  if (overlayCarrinho) overlayCarrinho.classList.add("aberto");
 }
 
 function fecharCarrinho() {
-  document.querySelector("#carrinho-lateral").classList.remove("carrinho-aberto");
-  document.querySelector("#overlay-carrinho").classList.remove("aberto");
+  const carrinhoLateral = document.querySelector("#carrinho-lateral");
+  const overlayCarrinho = document.querySelector("#overlay-carrinho");
+
+  if (carrinhoLateral) carrinhoLateral.classList.remove("carrinho-aberto");
+  if (overlayCarrinho) overlayCarrinho.classList.remove("aberto");
 }
 
-carregarProdutos();
-document.querySelector("#btn-carrinho-nav").addEventListener("click", abrirCarrinho);
-document.querySelector("#btn-fechar-carrinho").addEventListener("click", fecharCarrinho);
+function inicializarSistema() {
+  carregarProdutos();
+  renderizarCarrinho();
 
-renderizarCarrinho();
+  const btnCarrinhoNav = document.querySelector("#btn-carrinho-nav");
+  if (btnCarrinhoNav) btnCarrinhoNav.addEventListener("click", abrirCarrinho);
 
-document
-  .querySelector("#btn-finalizar-compra")
-  .addEventListener("click", finalizarCompra);
+  const btnFecharCarrinho = document.querySelector("#btn-fechar-carrinho");
+  if (btnFecharCarrinho) btnFecharCarrinho.addEventListener("click", fecharCarrinho);
+
+  const btnFinalizarCompra = document.querySelector("#btn-finalizar-compra");
+  if (btnFinalizarCompra) btnFinalizarCompra.addEventListener("click", finalizarCompra);
+}
+function buscar(){
+
+}
+
+inicializarSistema();
