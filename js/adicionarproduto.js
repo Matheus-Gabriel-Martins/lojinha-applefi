@@ -22,7 +22,7 @@ function salvarProduto() {
   produtosSalvos.push(novoProduto);
   localStorage.setItem("produtos", JSON.stringify(produtosSalvos));
 
-  window.location.href = "lojinha.html";
+  window.location.href = "lojinha.html";  
 }
 
 function inicializarCadastro() {

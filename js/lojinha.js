@@ -35,9 +35,12 @@ let produtos = [
 
 const produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
 produtos = [...produtos, ...produtosSalvos];
-const btnBuscar = document.querySelector(".buscar").addEventListener('click', ()=>{
-  buscar()
-})
+const btnBuscar = document.querySelector(".buscar");
+if (btnBuscar) {
+  btnBuscar.addEventListener('click', () => {
+    buscar();
+  });
+}
 let produtosCarregados = false;
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -124,6 +127,7 @@ function adicionarAoCarrinho(idProduto) {
   salvarCarrinho();
   renderizarCarrinho();
   abrirCarrinho();
+  salvarCheck();
 }
 
 function removerDoCarrinho(idProduto) {
@@ -230,8 +234,6 @@ function finalizarCompra() {
   }
 
   alert("Compra finalizada com sucesso!");
-
-  carrinho = [];
   salvarCarrinho();
   renderizarCarrinho();
 }
@@ -270,3 +272,4 @@ function buscar(){
 }
 
 inicializarSistema();
+console.log(carrinho)
